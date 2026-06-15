@@ -1,0 +1,146 @@
+{
+  "name": "cortex-plugin-goal-decomposer",
+  "version": "1.0.0",
+  "description": "Breaks complex goals into dependency-ordered subtasks",
+  "kind": "esm",
+  "entryPoint": "mod.ts",
+  "runtime": "deno",
+  "author": "CortexPrism",
+  "license": "MIT",
+  "repository": "https://github.com/CortexPrism/cortex-plugin-goal-decomposer",
+  "homepage": "https://cortexprism.io/marketplace/plugins/goal-decomposer",
+  "capabilities": [
+    "tools"
+  ],
+  "tools": [
+    {
+      "name": "decompose_goal",
+      "description": "Break a complex goal into dependency-ordered subtasks",
+      "params": [
+        {
+          "name": "goal",
+          "type": "string",
+          "description": "The complex goal to decompose",
+          "required": true
+        },
+        {
+          "name": "context",
+          "type": "string",
+          "description": "Optional additional context",
+          "required": false
+        },
+        {
+          "name": "max_subtasks",
+          "type": "number",
+          "description": "Maximum number of subtasks to generate",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "assign_subtasks",
+      "description": "Assign subtasks to agents/roles",
+      "params": [
+        {
+          "name": "subtasks",
+          "type": "string",
+          "description": "JSON array of subtask objects",
+          "required": true
+        },
+        {
+          "name": "agents",
+          "type": "string",
+          "description": "JSON array of available agents",
+          "required": false
+        }
+      ]
+    },
+    {
+      "name": "track_progress",
+      "description": "Track completion of subtasks",
+      "params": [
+        {
+          "name": "goal_id",
+          "type": "string",
+          "description": "The goal identifier",
+          "required": true
+        },
+        {
+          "name": "subtask_id",
+          "type": "string",
+          "description": "Specific subtask to update",
+          "required": false
+        },
+        {
+          "name": "status",
+          "type": "string",
+          "description": "Status to set",
+          "required": false,
+          "enum": ["pending", "in_progress", "completed", "blocked"]
+        }
+      ]
+    },
+    {
+      "name": "goal_status",
+      "description": "Get status of a decomposed goal",
+      "params": [
+        {
+          "name": "goal_id",
+          "type": "string",
+          "description": "The goal identifier",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "replan",
+      "description": "Replan remaining subtasks if something changes",
+      "params": [
+        {
+          "name": "goal_id",
+          "type": "string",
+          "description": "The goal identifier",
+          "required": true
+        },
+        {
+          "name": "change_description",
+          "type": "string",
+          "description": "Description of what changed",
+          "required": true
+        }
+      ]
+    }
+  ],
+  "peerDependencies": {
+    "cortex": ">=1.0.0"
+  },
+  "ui": {
+    "settings": [
+      {
+        "section": "General",
+        "fields": [
+          {
+            "key": "maxSubtasks",
+            "label": "Max Subtasks",
+            "type": "number",
+            "defaultValue": 8,
+            "description": "Default maximum number of subtasks per decomposition"
+          },
+          {
+            "key": "autoAssign",
+            "label": "Auto Assign",
+            "type": "boolean",
+            "defaultValue": true,
+            "description": "Automatically assign subtasks when decomposing"
+          }
+        ]
+      }
+    ]
+  },
+  "aiDisclosure": {
+    "tools": [
+      "Claude Code (Anthropic)"
+    ],
+    "humanReview": true
+  }
+}
