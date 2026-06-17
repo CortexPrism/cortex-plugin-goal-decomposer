@@ -24,6 +24,7 @@ cortex chat --plugin cortex-plugin-goal-decomposer
 Break a complex goal into dependency-ordered subtasks.
 
 **Parameters:**
+
 - `goal` (string, required) — The complex goal to decompose
 - `context` (string, optional) — Additional context
 - `max_subtasks` (number, optional) — Maximum subtasks (default: 8)
@@ -33,6 +34,7 @@ Break a complex goal into dependency-ordered subtasks.
 Assign subtasks to agents/roles.
 
 **Parameters:**
+
 - `subtasks` (string, required) — JSON array of subtask objects
 - `agents` (string, optional) — JSON array of available agents
 
@@ -41,6 +43,7 @@ Assign subtasks to agents/roles.
 Track completion of subtasks.
 
 **Parameters:**
+
 - `goal_id` (string, required) — The goal identifier
 - `subtask_id` (string, optional) — Specific subtask to update
 - `status` (string, optional) — Status: pending, in_progress, completed, blocked
@@ -50,6 +53,7 @@ Track completion of subtasks.
 Get status of a decomposed goal.
 
 **Parameters:**
+
 - `goal_id` (string, required) — The goal identifier
 
 ### replan
@@ -57,6 +61,7 @@ Get status of a decomposed goal.
 Replan remaining subtasks if something changes.
 
 **Parameters:**
+
 - `goal_id` (string, required) — The goal identifier
 - `change_description` (string, required) — Description of what changed
 

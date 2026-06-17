@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-goal-decomposer",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Breaks complex goals into dependency-ordered subtasks",
   "kind": "esm",
   "entryPoint": "mod.ts",
