@@ -1,6 +1,6 @@
 {
   "name": "cortex-plugin-goal-decomposer",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Breaks complex goals into dependency-ordered subtasks",
   "kind": "esm",
   "entryPoint": "mod.ts",
@@ -76,7 +76,12 @@
           "type": "string",
           "description": "Status to set",
           "required": false,
-          "enum": ["pending", "in_progress", "completed", "blocked"]
+          "enum": [
+            "pending",
+            "in_progress",
+            "completed",
+            "blocked"
+          ]
         }
       ]
     },
@@ -111,6 +116,7 @@
       ]
     }
   ],
+  "dependencies": {},
   "peerDependencies": {
     "cortex": ">=1.0.0"
   },
@@ -123,15 +129,15 @@
             "key": "maxSubtasks",
             "label": "Max Subtasks",
             "type": "number",
-            "defaultValue": 8,
-            "description": "Default maximum number of subtasks per decomposition"
+            "description": "Default maximum number of subtasks per decomposition",
+            "default": 8
           },
           {
             "key": "autoAssign",
             "label": "Auto Assign",
             "type": "boolean",
-            "defaultValue": true,
-            "description": "Automatically assign subtasks when decomposing"
+            "description": "Automatically assign subtasks when decomposing",
+            "default": true
           }
         ]
       }
