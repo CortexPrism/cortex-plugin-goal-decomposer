@@ -5,7 +5,7 @@
  * #5 in the official plugin registry.
  */
 
-import type { PluginContext, Tool, ToolCallResult, ToolContext } from './types.ts';
+import type { PluginContext, Tool, ToolCallResult } from 'cortex/plugins';
 
 // ---------------------------------------------------------------------------
 // Types
@@ -176,7 +176,7 @@ const decomposeGoal: Tool = {
     capabilities: [],
   },
 
-  execute: async (args: Record<string, unknown>, _ctx: ToolContext): Promise<ToolCallResult> => {
+  execute: async (args: Record<string, unknown>, _ctx: PluginContext): Promise<ToolCallResult> => {
     const start = Date.now();
     const toolName = 'decompose_goal';
     try {
@@ -261,7 +261,7 @@ const assignSubtasks: Tool = {
     capabilities: [],
   },
 
-  execute: async (args: Record<string, unknown>, _ctx: ToolContext): Promise<ToolCallResult> => {
+  execute: async (args: Record<string, unknown>, _ctx: PluginContext): Promise<ToolCallResult> => {
     const start = Date.now();
     const toolName = 'assign_subtasks';
     try {
@@ -368,7 +368,7 @@ const trackProgress: Tool = {
     capabilities: [],
   },
 
-  execute: async (args: Record<string, unknown>, _ctx: ToolContext): Promise<ToolCallResult> => {
+  execute: async (args: Record<string, unknown>, _ctx: PluginContext): Promise<ToolCallResult> => {
     const start = Date.now();
     const toolName = 'track_progress';
     try {
@@ -477,7 +477,7 @@ const goalStatus: Tool = {
     capabilities: [],
   },
 
-  execute: async (args: Record<string, unknown>, _ctx: ToolContext): Promise<ToolCallResult> => {
+  execute: async (args: Record<string, unknown>, _ctx: PluginContext): Promise<ToolCallResult> => {
     const start = Date.now();
     const toolName = 'goal_status';
     try {
@@ -566,7 +566,7 @@ const replan: Tool = {
     capabilities: [],
   },
 
-  execute: async (args: Record<string, unknown>, _ctx: ToolContext): Promise<ToolCallResult> => {
+  execute: async (args: Record<string, unknown>, _ctx: PluginContext): Promise<ToolCallResult> => {
     const start = Date.now();
     const toolName = 'replan';
     try {
